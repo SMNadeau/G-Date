@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "471298922181",
+    "firebase_url": "https://g-date-e9b3a.firebaseio.com",
+    "project_id": "g-date-e9b3a",
+    "storage_bucket": "g-date-e9b3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471298922181:android:2bd3884a1c4cf4935e82ac",
+        "android_client_info": {
+          "package_name": "com.instadating"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471298922181-7k3037av1hltu4an2go7a82fescl99li.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZjD5Gu-ys1-oxmo4QCOJGPVcdRel3C6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471298922181-7k3037av1hltu4an2go7a82fescl99li.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "471298922181-5apgi88l1tl69omlv19nigkj277d4vsb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.instaswipey"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

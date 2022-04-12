@@ -1,0 +1,111 @@
+<head>
+  <title>Dating-App Management Portal</title>
+  <!---
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+  <script
+    defer
+    src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"
+  ></script>
+  
+  
+  -->
+  
+
+  <script>
+    const electron = require('electron');
+    const { ipcRenderer } = electron;
+  </script>
+
+  <script type="text/javascript" src="users.js"></script>
+
+  <style>
+    #command-bar {
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+    }
+
+    #command-bar div {
+      flex: 1;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    .option {
+      height: 100;
+      background-color: 581ca3;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="command-bar">
+    <div
+      class="option"
+      onclick="ipcRenderer.send('newUser:start');console.log('add user')"
+    >
+      <h2>Add User</h2>
+    </div>
+
+    <div class="option" onclick="console.log('edit user');rowClickEdit()">
+      <h2>Edit User</h2>
+    </div>
+
+    <div
+      class="option"
+      onclick="console.log('delete user');rowClickDelete();"
+    >
+      <h2>Delete User</h2>
+    </div>
+
+    <div
+      class="option"
+      onclick="location.href='../index.html';console.log('Go back to main page')"
+    >
+      <h2>Back</h2>
+    </div>
+  </div>
+
+  <div id="bottom-bar">
+    <h2>Role Shown</h2>
+    <select name="role" onchange="tableGetData('users', document.getElementsByName('role')[0].value)">
+      <option value="all">all</option>
+      <option value="participant">participant</option>
+      <option value="bot">bot</option>
+      <option value="developer">developer</option>
+    </select>
+  </div>
+
+  <div id="u-table">
+    <h4>Users</h4>
+    <style></style>
+    <table id="usersTable">
+      <tr>
+        <th>First</th>
+        <th>Last</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Age</th>
+        <th>DateType</th>
+      </tr>
+    </table>
+  </div>
+</body>
+
+<script>
+  tableGetData('users', document.getElementsByName('role')[0].value);
+</script>

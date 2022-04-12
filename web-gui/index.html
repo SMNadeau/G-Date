@@ -1,0 +1,75 @@
+<head>
+  <title>Dating-App Management Portal</title>
+
+  <script>
+    //require('./renderer.js');
+    //const electron = require('electron');
+    //const { ipcRenderer } = electron;
+  </script>
+
+  <style>
+    #command-bar {
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+    }
+
+    #command-bar div {
+      flex: 1;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    .option {
+      height: 100;
+      background-color: 581ca3;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    h2,
+    p {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="command-bar">
+    <div
+      class="option"
+      onclick="location.href='users/users.html';console.log('Do stuff to users')"
+    >
+      <h2 style="text-align: center;">User Operations</h2>
+      <p>Add, edit, delete users</p>
+    </div>
+
+    <div
+      class="option"
+      onclick="location.href='questions/questions.html';console.log('Do stuff to questions')"
+    >
+      <h2 style="text-align: center;">Question Operations</h2>
+      <p>Add, edit, delete questions</p>
+    </div>
+
+    <div class="option" onclick="location.href='photos/photos.html';console.log('Do stuff to photos')">
+      <h2 style="text-align:center;">Photo Operations</h2>
+      <p>Add, edit, delete photos</p>
+    </div>
+
+    <div class="option" onclick="location.href='data/data.html';console.log('Get all data')">
+      <h2 style="text-align: center;">Data Operations</h2>
+      <p>Download all data as a CSV file</p>
+    </div>
+  </div>
+</body>

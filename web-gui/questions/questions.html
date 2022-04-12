@@ -1,0 +1,80 @@
+<head>
+  <title>Dating-App Management Portal</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+  <script
+    defer
+    src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"
+  ></script>
+
+  <script>
+    const electron = require('electron');
+    const { ipcRenderer } = electron;
+  </script>
+
+  <script type="text/javascript" src="questions.js"></script>
+
+  <style>
+    #command-bar {
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+    }
+
+    #command-bar div {
+      flex: 1;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    .option {
+      height: 100;
+      background-color: 581ca3;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="command-bar">
+    <div class="option" onclick="console.log('edit question');rowClickEdit()">
+      <h2>Edit Question</h2>
+    </div>
+
+    <div
+      class="option"
+      onclick="location.href='../index.html';console.log('Go back to main page')"
+    >
+      <h2>Back</h2>
+    </div>
+  </div>
+
+  <div id="q-table">
+    <h4>Users</h4>
+    <style></style>
+    <table id="questionsTable">
+      <tr>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>DateType</th>
+        <th>QuestionID</th>
+      </tr>
+    </table>
+  </div>
+</body>
+
+<script>
+  tableGetData('speed_date_questions');
+</script>

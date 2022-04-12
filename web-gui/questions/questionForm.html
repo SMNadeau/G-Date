@@ -1,0 +1,70 @@
+<head>
+  <script>
+    const electron = require('electron');
+    const { ipcRenderer } = electron;
+
+    ipcRenderer.on('questions:edit', (event, id) => {
+      //Populates the userForm with data from the user identified by userID
+      //TODO: userId or id needs to be used here
+      setEditQuestionForm('speed_date_questions', id);
+
+      //Sets the functionality of the submit button
+      var button = document.getElementById('Submit');
+      button.onclick = async () => {
+        //TODO: userId or id needs to be used here
+        await getEditQuestionForm('speed_date_questions', id);
+        window.close();
+        //ipcRenderer.send('AddWindow:close');
+      };
+    });
+
+    //ipcRenderer.on('Question:add', () => {
+    //    var button = document.getElementById('Submit');
+    //    button.onclick = () => {
+    //        addQuestion(() => {
+    //            ipcRenderer.send('MainWindow:reload');
+    //        });
+    //    };
+    //});
+  </script>
+</head>
+
+<body>
+  <form id="formUpdateQuestion">
+    <div class="formItem">Question ID:</div>
+    <div class="formItem">
+      <input type="text" name="questionId" />
+    </div>
+    <div class="formItem">Date Type:</div>
+    <div class="formItem">
+      <input type="text" name="dateType" />
+    </div>
+    <div class="formItem">Question:</div>
+    <div class="formItem">
+      <textarea name="question" rows="10" cols=80></textarea>
+    </div>
+    <div class="formItem">answer:</div>
+    <div class="formItem">
+      <textarea name="answer" rows="10" cols=80></textarea>
+    </div>
+  </form>
+
+  <div>
+    <button id="Submit">
+      Submit
+    </button>
+    <button id="Cancel" onclick="window.close();//ipcRenderer.send('AddWindow:close')">
+      Cancel
+    </button>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+  <script
+    defer
+    src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"
+  ></script>
+
+  <script type="text/javascript" src="questions.js"></script>
+</body>

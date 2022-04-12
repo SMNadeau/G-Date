@@ -1,0 +1,50 @@
+<head>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <script
+    defer
+    src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"
+  ></script>
+
+  <script>
+    const electron = require('electron');
+    const { ipcRenderer } = electron;
+  </script>
+
+  <style>
+    ul {
+      list-style: none;
+    }
+
+    .li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: left;
+    }
+    .image {
+      z-index: 2;
+      position: absolute;
+    }
+    .label {
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="Cancel" onclick="window.close();//ipcRenderer.send('AddWindow:close')">
+    Cancel
+  </button>
+  <ul style="columns: 5;" id="imageList"></ul>
+</body>
+
+<script type="text/javascript" src="photos.js"></script>
+<script>
+  ipcRenderer.on('photos:edit', (event, id) => {
+    editBotPhoto(id);
+  });
+</script>

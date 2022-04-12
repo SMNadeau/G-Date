@@ -1,0 +1,97 @@
+<head>
+  <script>
+    const electron = require('electron');
+    const { ipcRenderer } = electron;
+
+    ipcRenderer.on('editUser', (event, userID) => {
+      //Populates the userForm with data from the user identified by userID
+      //TODO: userId or id needs to be used here
+      setEditUserForm('users', userID);
+
+      //Sets the functionality of the submit button
+      var button = document.getElementById('Submit');
+      button.onclick = async () => {
+        //TODO: userId or id needs to be used here
+        await getEditUserFrom('users', userID);
+        window.close();
+        //ipcRenderer.send('AddWindow:close');
+      };
+    });
+
+    ipcRenderer.on('newUser', () => {
+      var button = document.getElementById('Submit');
+      button.onclick = () => {
+        addUserData(() => {
+          //Close Modal which will trigger a refresh of the main window
+          ipcRenderer.send('cancel');
+          //ipcRenderer.send('MainWindow:reload');
+        });
+      };
+    });
+  </script>
+</head>
+
+<body>
+  <form id="formUpdateUserData">
+    <div class="formItem">firstName:</div>
+    <div class="formItem">
+      <input type="text" name="firstName" />
+    </div>
+    <div class="formItem">lastName:</div>
+    <div class="formItem">
+      <input type="text" name="lastName" />
+    </div>
+    <div class="formItem">email:</div>
+    <div class="formItem">
+      <input type="text" name="email" />
+    </div>
+    <div class="formItem">password:</div>
+    <div class="formItem">
+      <input type="text" name="password" />
+    </div>
+    <div class="formItem">role:</div>
+    <div class="formItem">
+      <select name="role">
+        <option value="participant">participant</option>
+        <option value="bot">bot</option>
+        <option value="developer">developer</option>
+      </select>
+    </div>
+    <div class="formItem">age:</div>
+    <div class="formItem">
+      <input type="number" name="age"
+       min="18" max="99">
+    </div>
+
+    <div class="formItem">dateType:</div>
+    <div class="formItem">
+      <select name="dateType">
+        <option value="safe-risky">safe-risky</option>
+        <option value="risky-safe">risky-safe</option>
+      </select>
+    </div>
+    <div class="formItem">Photo:</div>
+    <div class="formItem">
+      <textarea name="profilePictureURL" rows="5" cols=50></textarea>
+    </div>
+  </form>
+
+  <div>
+    <button id="Submit">
+      Submit
+    </button>
+    <button id="Cancel" onclick="window.close();//ipcRenderer.send('AddWindow:close')">
+      Cancel
+    </button>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+  <script
+    defer
+    src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"
+  ></script>
+
+  <script type="text/javascript" src="users.js"></script>
+</body>

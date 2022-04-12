@@ -1,0 +1,70 @@
+<head>
+  <title>Dating-App Management Portal</title>
+
+  <script>
+    const { ipcRenderer }  = require('electron');
+  </script>
+
+  <style>
+    ul {
+      list-style: none;
+    }
+
+    .li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: left;
+    }
+    .image {
+      z-index: 2;
+      position: absolute;
+    }
+    .label {
+      z-index: 1;
+    }
+    #command-bar {
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+    }
+
+    #command-bar div {
+      flex: 1;
+    }
+
+    .option {
+      height: 100;
+      background-color: 581ca3;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="command-bar">
+    <div class="option" onclick="console.log('edit photo');setImages('edit')">
+      <h2>Edit Photo</h2>
+    </div>
+    <div class="option" onclick="console.log('add new photo');setImages('add')">
+      <h2>Add New Photo</h2>
+    </div>
+
+    <div
+      class="option"
+      onclick="location.href='../index.html';console.log('Go back to main page')"
+    >
+      <h2>Back</h2>
+    </div>
+  </div>
+  <input type="file" accept="image/*" id="fileInput" />
+  <ul style="columns: 5;" id="imageList"></ul>
+</body>
+
+<script type="text/javascript" src="photos.js"></script>
+<script>
+  setImages('show all');
+</script>

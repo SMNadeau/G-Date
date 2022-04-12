@@ -1,0 +1,63 @@
+<head>
+  <title>Dating-App Management Portal</title>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+  </script>
+
+  <script type="text/javascript" src="data.js"></script>
+
+  <style>
+    #command-bar {
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+    }
+
+    #command-bar div {
+      flex: 1;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    .option {
+      height: 100;
+      background-color: 581ca3;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="command-bar">
+    <div class="option" onclick="console.log('get all data')">
+      <h2>Get All Data</h2>
+    </div>
+
+    <div class="option" onclick="console.log('clear all data');deleteAllDataCheck()">
+      <h2>Clear All Data</h2>
+    </div>
+
+    <div
+      class="option"
+      onclick="location.href='../index.html';console.log('Go back to main page')"
+    >
+      <h2>Back</h2>
+    </div>
+  </div>
+</body>
+
+<script>
+  
+</script>
