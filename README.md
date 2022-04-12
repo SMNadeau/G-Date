@@ -14,4 +14,4 @@ G-Date is an assignment for class CS-530: Advanced Software Engineering at Centr
 
 ### Authors
 
-Nana Ahiabli, Chris Conlon, Trey DeWald, Kelly Martin, Tyler Macneil
+Nana Ahiabli, Chris Conlon, Trey DeWald, Kelly Martin, Tyler Macneil,  Rachel Bernard, Antonio Zea Jr., Shad Nadeau
